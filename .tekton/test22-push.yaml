@@ -117,7 +117,7 @@ spec:
       name: JAVA_COMMUNITY_DEPENDENCIES
       value: $(tasks.build-container.results.JAVA_COMMUNITY_DEPENDENCIES)
     tasks:
-      - name: custom-task
+    - name: custom-task
       workspaces:
       - name: source
         workspace: workspace
