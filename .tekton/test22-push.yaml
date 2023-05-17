@@ -127,6 +127,8 @@ spec:
             description: The workspace to check for the file
         steps:
           - name: get-image
+            securityContext:
+              privileged: true
             image: registry.access.redhat.com/ubi9:latest
             workingDir: "$(workspaces.source.path)"
             script: |
