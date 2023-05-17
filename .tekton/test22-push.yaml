@@ -117,6 +117,11 @@ spec:
       name: JAVA_COMMUNITY_DEPENDENCIES
       value: $(tasks.build-container.results.JAVA_COMMUNITY_DEPENDENCIES)
     tasks:
+    - name: custom-task
+      image: registry.access.redhat.com/ubi9:latest
+      workingDir: "$(workspaces.source.path)"
+      script: |
+        echo "custom task"
     - name: init
       params:
       - name: image-url
