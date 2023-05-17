@@ -14,7 +14,7 @@ metadata:
     appstudio.openshift.io/component: test22
     pipelines.appstudio.openshift.io/type: build
   name: test22-on-push
-  namespace: lpardo-tenant
+  namespace: ps-research-2-tenant
 spec:
   params:
   - name: dockerfile
