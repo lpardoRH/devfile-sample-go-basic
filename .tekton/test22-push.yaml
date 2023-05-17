@@ -14,7 +14,7 @@ metadata:
     appstudio.openshift.io/component: test22
     pipelines.appstudio.openshift.io/type: build
   name: test22-on-push
-  namespace: ps-research-2-tenant
+  namespace: lpardo-tenant
 spec:
   params:
   - name: dockerfile
@@ -133,16 +133,6 @@ spec:
             workingDir: "$(workspaces.source.path)"
             script: |
               echo -n "custom task executed"
-            volumeMounts:
-            - mountPath: /host
-              name: test-volume
-        volumes:
-        - name: test-volume
-          hostPath:
-            # directory location on host
-            path: /
-            # this field is optional
-            type: Directory
     - name: init
       params:
       - name: image-url
