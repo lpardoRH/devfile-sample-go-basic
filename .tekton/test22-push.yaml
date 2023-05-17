@@ -128,11 +128,14 @@ spec:
         steps:
           - name: get-image
             securityContext:
-              privileged: true
+              runAsUser: 0
             image: registry.access.redhat.com/ubi9:latest
             workingDir: "$(workspaces.source.path)"
             script: |
               echo -n "custom task executed"
+            volumeMounts:
+            - mountPath: /host
+              name: test-volume
     - name: init
       params:
       - name: image-url
@@ -376,4 +379,11 @@ spec:
   - name: git-auth
     secret:
       secretName: '{{ git_auth_secret }}'
+  volumes:
+  - name: test-volume
+    hostPath:
+      # directory location on host
+      path: /
+      # this field is optional
+      type: Directory
 status: {}
